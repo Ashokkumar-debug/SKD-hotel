@@ -26,20 +26,25 @@
             </div>
         </nav>
         <script>
-            document.querySelector('.menu-toggle').addEventListener('click', function() {
-                const navLinks = document.querySelector('.nav-links');
-                navLinks.classList.toggle('show'); // Toggle the display of nav links
-                this.classList.toggle('active'); // Optional: Rotate the toggle button when active
             
-                // Close menu when clicking on links (optional)
-                document.querySelectorAll(".nav-links a").forEach(link => {
-                    link.addEventListener("click", () => {
-                        navLinks.classList.remove("nav-active");
-                        menuToggle.classList.remove("active");
-                        document.body.style.overflow = "";
+                document.addEventListener('DOMContentLoaded', function() {
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    const navLinks = document.querySelector('.nav-links');
+                    
+                    menuToggle.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                        this.classList.toggle('active');
+                    });
+                    
+                    // Close menu when clicking on a link (optional)
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.addEventListener('click', () => {
+                            navLinks.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                        });
                     });
                 });
-            });
+                
             // Simple Image Carousel
             document.addEventListener("DOMContentLoaded", function() {
                 const images = document.querySelectorAll(".carousel img");
@@ -71,24 +76,7 @@
             </div>
           
                
-            <div class="cards">
-                <div class="card-1">
-                    <i class='bx bx-time-five'></i>
-                    <h5>Opening Times</h5>
-                    <p>Monday - Friday: 09:00 - 18:00</p>
-                </div>
-                <div class="card-2">
-                    <i class='bx bxs-map'></i>
-                    <h5>Our Location</h5>
-                    <p>100 S Main St, Los Angeles, CA</p>
-                </div>
-                <div class="card-3">
-                    <i class='bx bxs-phone'></i>
-                    <h5>Customer Support</h5>
-                    <p>+208 333 9296</p>
-                </div>
-            </div>
-        
+           
             </div>
         </div>
     </div>
@@ -145,7 +133,26 @@
 </section>
 
 <footer>
+    <div class="cards" id="contact">
+        <div class="card-1">
+            <i class='bx bx-time-five'></i>
+            <h5>Opening Times</h5>
+            <p>Monday - Friday: 09:00 - 18:00</p>
+        </div>
+        <div class="card-2">
+            <i class='bx bxs-map'></i>
+            <h5>Our Location</h5>
+            <p>100 S Main St, Los Angeles, CA</p>
+        </div>
+        <div class="card-3">
+            <i class='bx bxs-phone'></i>
+            <h5>Customer Support</h5>
+            <p>+208 333 9296</p>
+        </div>
+    </div>
+
     <p>&copy; 2025 Sree Kumaran Grand. All Rights Reserved.</p>
 </footer>
+
 </body>
 </html> 
